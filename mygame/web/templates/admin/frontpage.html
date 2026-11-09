@@ -1,0 +1,207 @@
+{% extends "website/base.html" %}
+
+{% block titleblock %}Admin & World Cartographer{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+  <div class="col-12">
+    <!-- Featured World Map & Diagnostic Cartographer Hero Card -->
+    <div class="card shadow-lg" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 1px solid #38bdf8; border-radius: 10px; overflow: hidden; margin-top: 15px;">
+      <div class="card-header d-flex justify-content-between align-items-center flex-wrap" style="background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid #334155; padding: 14px 20px;">
+        <div class="d-flex align-items-center gap-3">
+          <span style="font-size: 1.6rem;">🗺️</span>
+          <div>
+            <h4 class="mb-0 text-white font-weight-bold" style="font-family: 'Segoe UI', monospace; letter-spacing: 0.5px;">
+              Eldoria Visual World Map & Diagnostic Cartographer
+            </h4>
+            <small style="color: #94a3b8;">
+              3,737 Rooms • 12,001 Exits • 69 Zones • Real-Time MUD Automapper & Integrity Auditing
+            </small>
+          </div>
+        </div>
+        <div class="d-flex gap-2 mt-2 mt-md-0">
+          <a href="/admin/worldmap/" target="_blank" class="btn btn-primary font-weight-bold shadow-sm" style="background: linear-gradient(135deg, #0284c7, #2563eb); border: 1px solid #38bdf8; font-size: 0.9rem;">
+            ⛶ Open Fullscreen Mapper
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="row text-center py-3 px-3 mx-0" style="background: rgba(15, 23, 42, 0.6); border-bottom: 1px solid #334155;">
+        <div class="col-6 col-md-2 mb-2 mb-md-0 border-right border-secondary">
+          <div class="text-info font-weight-bold" style="font-size: 1.25rem;">3,737</div>
+          <small style="color: #94a3b8; text-transform: uppercase; font-size: 0.72rem;">Total Rooms</small>
+        </div>
+        <div class="col-6 col-md-2 mb-2 mb-md-0 border-right border-secondary">
+          <div class="text-success font-weight-bold" style="font-size: 1.25rem;">12,001</div>
+          <small style="color: #94a3b8; text-transform: uppercase; font-size: 0.72rem;">Exits (96.3% Recip.)</small>
+        </div>
+        <div class="col-6 col-md-2 mb-2 mb-md-0 border-right border-secondary">
+          <div class="text-warning font-weight-bold" style="font-size: 1.25rem;">588</div>
+          <small style="color: #94a3b8; text-transform: uppercase; font-size: 0.72rem;">Dead Ends</small>
+        </div>
+        <div class="col-6 col-md-2 mb-2 mb-md-0 border-right border-secondary">
+          <div class="font-weight-bold" style="color: #c084fc; font-size: 1.25rem;">445</div>
+          <small style="color: #94a3b8; text-transform: uppercase; font-size: 0.72rem;">One-Way Traps</small>
+        </div>
+        <div class="col-6 col-md-2 mb-2 mb-md-0 border-right border-secondary">
+          <div class="text-danger font-weight-bold" style="font-size: 1.25rem;">24</div>
+          <small style="color: #94a3b8; text-transform: uppercase; font-size: 0.72rem;">Orphan Rooms</small>
+        </div>
+        <div class="col-6 col-md-2">
+          <div class="text-white font-weight-bold" style="font-size: 1.25rem;">69</div>
+          <small style="color: #94a3b8; text-transform: uppercase; font-size: 0.72rem;">World Zones</small>
+        </div>
+      </div>
+
+      <!-- Embedded Interactive Map Canvas / Frame -->
+      <div class="card-body p-0" style="position: relative; height: 600px; background: #0f172a;">
+        <iframe src="/admin/worldmap/" style="width: 100%; height: 100%; border: none; display: block;" title="Eldoria Visual World Map"></iframe>
+      </div>
+      
+      <div class="card-footer d-flex justify-content-between align-items-center flex-wrap" style="background: rgba(15, 23, 42, 0.9); border-top: 1px solid #334155; padding: 10px 20px;">
+        <small style="color: #94a3b8;">
+          💡 Controls: <strong>Click & Drag</strong> to Pan • <strong>Scroll</strong> to Zoom • <strong>Click Node</strong> to Inspect DB Details • Toggle Audit layers in sidebar
+        </small>
+        <div class="d-flex gap-2">
+          <a href="/admin/worldmap/api/data/" target="_blank" class="btn btn-sm btn-outline-info">JSON Graph API</a>
+          <a href="/admin/worldmap/api/live/" target="_blank" class="btn btn-sm btn-outline-success">Live Player API</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header bg-light">
+        <h5 class="mb-0 text-dark font-weight-bold">Evennia Database Administration</h5>
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                <p class="lead mb-1"><a href="{% url 'admin:accounts_accountdb_changelist' %}">Accounts</a></p>
+                  <small class="text-muted">
+                      Hold a player's configuration and password. An account can
+                      control one or more in-game characters (Objects).
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                  <p class="lead mb-1"><a href="{% url 'admin:objects_objectdb_changelist' %}">Objects</a></p>
+                  <small class="text-muted">
+                      Include everything inside the game-world, from Characters
+                      to Rooms, Exits, swords and monsters.
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                  <p class="lead mb-1"><a href="{% url 'admin:scripts_scriptdb_changelist' %}">Scripts</a></p>
+                  <small class="text-muted">
+                      Objects without in-game existence used to store game
+                      state, timers, sailing tick handlers, and world triggers.
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                  <p class="lead mb-1"><a href="{% url 'admin:typeclasses_tag_changelist' %}">Tags</a></p>
+                  <small class="text-muted">
+                      Group, categorize, and organize world entities (zones, anchors, danger tiers).
+                  </small>
+                </p>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                  <p class="lead mb-1"><a href="{% url 'admin:comms_channeldb_changelist' %}">Channels</a></p>
+                  <small class="text-muted">
+                      Redirect communication between subscribers, chat-room style.
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                  <p class="lead mb-1"><a href="{% url 'admin:comms_msg_changelist' %}">Msgs</a></p>
+                  <small class="text-muted">
+                      Store units of communication between senders and receivers.
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                  <p class="lead mb-1"><a href="{% url 'admin:help_helpentry_changelist' %}">Help Topics</a></p>
+                  <small class="text-muted">
+                      Game commands, syntax, lore, and builder manuals.
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                  <p class="lead mb-1"><a href="{% url 'admin:server_serverconfig_changelist' %}">ServerConfigs</a></p>
+                  <small class="text-muted">
+                      Persistent settings and server state variables.
+                  </small>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                <p class="lead mb-1"><a href="{% url 'admin:sites_site_changelist' %}">Site-Domains</a></p>
+                  <small class="text-muted">
+                        Define domains for web portals.
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                <p class="lead mb-1"><a href="{% url 'admin:flatpages_flatpage_changelist' %}">Flat Pages</a></p>
+                  <small class="text-muted">
+                      Create, edit and publish new web pages without writing code.
+                  </small>
+                </p>
+            </div>
+
+            <div class="col-sm border p-3">
+                <p class="card-text">
+                <p class="lead mb-1"><a href="{% url 'admin:auth_group_changelist' %}">Groups</a></p>
+                  <small class="text-muted">
+                      Permission groups for staff and builders.
+                  </small>
+                </p>
+            </div>
+
+        </div>
+
+        <p class="card-text text-center mt-3">
+          <small class="text-muted">
+              Base Django Admin panel is also accessible at <a href="{% url 'django_admin' %}">/admin/django/</a>.
+          </small>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,118 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block title %}{% if form.errors %}{% translate "Error:" %} {% endif %}{{ block.super }}{% endblock %}
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static "admin/css/login.css" %}">
+{{ form.media }}
+<style>
+  .worldmap-promo-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 2px solid #38bdf8;
+    border-radius: 10px;
+    padding: 22px 20px;
+    margin: 25px auto 20px auto;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: #f8fafc;
+  }
+  .worldmap-promo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+    color: #ffffff !important;
+    font-weight: 700;
+    text-decoration: none !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid #38bdf8;
+    font-size: 0.98rem;
+    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+    margin-top: 14px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .worldmap-promo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+  }
+</style>
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block nav-breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+<!-- Prominent World Map Cartographer Direct Access Banner -->
+<div class="worldmap-promo-card">
+  <div style="font-size: 2rem; margin-bottom: 6px;">🗺️</div>
+  <h2 style="color: #38bdf8; margin: 0 0 8px 0; font-size: 1.35rem; font-weight: 700; font-family: monospace;">
+    Eldoria Visual World Map & Diagnostics
+  </h2>
+  <p style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.45; margin-bottom: 0;">
+    Explore <strong>3,737 rooms</strong> across <strong>69 zones</strong>, live player blips, dead-end/one-way audits, and speedwalk pathfinding.
+  </p>
+  <a href="/admin/worldmap/" class="worldmap-promo-btn">
+    <span>🚀</span> Open Interactive World Map (No Login Required) ➔
+  </a>
+</div>
+
+{% if form.errors and not form.non_field_errors %}
+<p class="errornote">
+{% blocktranslate count counter=form.errors.items|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktranslate %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+<div id="content-main">
+
+{% if user.is_authenticated %}
+<p class="errornote">
+{% blocktranslate trimmed %}
+    You are authenticated as {{ username }}, but are not authorized to
+    access this page. Would you like to login to a different account?
+{% endblocktranslate %}
+</p>
+{% endif %}
+
+<form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+  <div class="form-row">
+    {{ form.username.errors }}
+    {{ form.username.label_tag }} {{ form.username }}
+  </div>
+  <div class="form-row">
+    {{ form.password.errors }}
+    {{ form.password.label_tag }} {{ form.password }}
+    <input type="hidden" name="next" value="{{ next }}">
+  </div>
+  {% url 'admin_password_reset' as password_reset_url %}
+  {% if password_reset_url %}
+  <div class="password-reset-link">
+    <a href="{{ password_reset_url }}">{% translate 'Forgotten your login credentials?' %}</a>
+  </div>
+  {% endif %}
+  <div class="submit-row">
+    <input type="submit" value="{% translate 'Log in' %}">
+  </div>
+</form>
+
+</div>
+{% endblock %}
+

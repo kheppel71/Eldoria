@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<div id="site-name" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+    <a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a>
+    <a href="/admin/worldmap/" target="_blank" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #ffffff; font-weight: 600; text-decoration: none; padding: 4px 12px; border-radius: 6px; border: 1px solid #38bdf8; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px;">
+        🗺️ Launch Interactive World Map & Audit
+    </a>
+</div>
+{% if user.is_anonymous %}
+  {% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}
+<div style="display: flex; align-items: center; margin-left: 20px;">
+    <a href="/admin/worldmap/" target="_blank" style="color: #38bdf8; font-weight: 600; text-decoration: none; font-size: 0.85rem;">
+        🗺️ Open World Map & Diagnostics
+    </a>
+</div>
+{% endblock %}

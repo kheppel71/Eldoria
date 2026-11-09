@@ -1,0 +1,34 @@
+# Python virtual environment
+evennia-env/
+env/
+venv/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Evennia Server state, logs, and databases
+mygame/server/*.pid
+mygame/server/*.restart
+mygame/server/logs/
+*.log
+*.log.*
+*.db3
+*.sqlite3
+mygame/server/conf/secret_settings.py
+
+# Backups and temporary files
+backups/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

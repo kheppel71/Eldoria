@@ -1,0 +1,18 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 2px solid #38bdf8; border-radius: 8px; padding: 18px 24px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+  <div>
+    <h3 style="color: #38bdf8; margin: 0 0 6px 0; font-size: 1.2rem; font-weight: 700;">🗺️ Eldoria MUD World Cartographer & Audit Suite</h3>
+    <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">
+      Interactive 2D/3D map, 3,737 rooms, live player blips, and missing exit / dead-end diagnostic engine.
+    </p>
+  </div>
+  <a href="/admin/worldmap/" target="_blank" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #ffffff; font-weight: 700; text-decoration: none; padding: 8px 18px; border-radius: 6px; border: 1px solid #38bdf8; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px;">
+    🚀 Launch Interactive Map
+  </a>
+</div>
+
+{{ block.super }}
+{% endblock %}
+

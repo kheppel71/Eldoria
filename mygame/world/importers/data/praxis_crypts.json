@@ -1,0 +1,115 @@
+{
+  "zone_key": "praxis_crypts",
+  "zone_name": "The Sunken Catacombs of Praxis",
+  "default_terrain": "catacombs",
+  "base_coords": [10, -5, -1],
+  "rooms": [
+    {
+      "id": "crypt_entrance",
+      "title": "Flooded Archway to the Catacombs",
+      "desc": "Brackish sea water laps against ancient marble steps leading downward into absolute gloom. Barnacles and phosphorescent algae cling to cracked stone arches carved with serpentine runes of an era long forgotten. Cold ocean drafts whistle through the passage above.",
+      "terrain": "catacombs",
+      "coords": [10, -5, -1],
+      "exits": {
+        "north": "crypt_hall",
+        "down": "crypt_ossuary"
+      },
+      "items": [
+        {
+          "name": "Corroded Brass Lantern",
+          "desc": "An antique maritime storm lantern caked with verdigris and dried salt brine.",
+          "aliases": ["lantern", "lamp"]
+        }
+      ]
+    },
+    {
+      "id": "crypt_hall",
+      "title": "The Hall of Weeping Statues",
+      "desc": "A vaulted subterranean gallery where life-sized stone effigies of long-dead admirals and high mages stand vigil in alcoves. Mineral-rich water drips slowly from the ceiling, leaving tear-like streaks of salt and limestone down their weathered faces.",
+      "terrain": "catacombs",
+      "coords": [10, -4, -1],
+      "exits": {
+        "south": "crypt_entrance",
+        "east": "crypt_sepulcher"
+      },
+      "npcs": [
+        {
+          "name": "Barnacled Skeleton",
+          "desc": "The reanimated remains of a sunken galley slaver, held together by calcified reef growth and foul sea sorcery.",
+          "aliases": ["skeleton", "undead", "mariner"]
+        }
+      ]
+    },
+    {
+      "id": "crypt_sepulcher",
+      "title": "Sepulcher of the Corsair King",
+      "desc": "In the center of this domed chamber rests a massive sarcophagus of black basalt. Relief carvings depict a fleet of dragon-prowed caravels firing sorcerous flame into the stormy seas. Stagnant knee-deep seawater reflects the faint phosphorescence of the damp walls.",
+      "terrain": "catacombs",
+      "coords": [11, -4, -1],
+      "exits": {
+        "west": "crypt_hall",
+        "north": "crypt_treasury"
+      },
+      "items": [
+        {
+          "name": "Tarnished Silver Cutlass",
+          "desc": "A curved naval blade engraved with sea-dragon crests. Its edge remains surprisingly sharp despite centuries in the damp salt air.",
+          "aliases": ["cutlass", "sword", "blade"]
+        }
+      ]
+    },
+    {
+      "id": "crypt_treasury",
+      "title": "Flooded Vault of Relics",
+      "desc": "Smashed iron-banded sea chests lie half-submerged in silt and seawater. Piles of green copper groats and tarnished silver doubloons are scattered across the flagstones, remnants of plunder taken across the known world.",
+      "terrain": "catacombs",
+      "coords": [11, -3, -1],
+      "exits": {
+        "south": "crypt_sepulcher"
+      },
+      "items": [
+        {
+          "name": "Ancient Eldorian Coin Hoard",
+          "desc": "A scattered pile of heavy minted gold sovereigns stamped with the royal crest of old Eldoria.",
+          "aliases": ["coins", "gold", "hoard", "money"]
+        }
+      ]
+    },
+    {
+      "id": "crypt_ossuary",
+      "title": "The Sunken Ossuary",
+      "desc": "Thousands of human and goblin bones are meticulously stacked along the walls like firewood, forming mortarless pillars that support the low ceiling. Sea-water ripples waist-deep here, cold and numbing to the bone.",
+      "terrain": "underwater",
+      "coords": [10, -5, -2],
+      "exits": {
+        "up": "crypt_entrance",
+        "east": "crypt_shrine"
+      },
+      "npcs": [
+        {
+          "name": "Ghostly Corsair",
+          "desc": "A translucent apparition of a privateer in tattered sea-cloaks, staring outward with hollow burning eyes.",
+          "aliases": ["ghost", "corsair", "specter"]
+        }
+      ]
+    },
+    {
+      "id": "crypt_shrine",
+      "title": "Submerged Shrine to the Deep",
+      "desc": "An octagonal shrine sunken completely into the brine. In the center rises a monolithic idol carved from a single slab of green sea-jade, representing an ancient aquatic deity. Offerings of sea pearls and conch shells rest before the altar.",
+      "terrain": "underwater",
+      "coords": [11, -5, -2],
+      "exits": {
+        "west": "crypt_ossuary"
+      },
+      "items": [
+        {
+          "name": "Black Pearl of Dagon",
+          "desc": "A flawless, thumb-sized black pearl that radiates a cold, hypnotic hum when held near water.",
+          "aliases": ["pearl", "gem", "relic"]
+        }
+      ]
+    }
+  ]
+}
+

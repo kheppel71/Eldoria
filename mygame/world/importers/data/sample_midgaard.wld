@@ -1,0 +1,81 @@
+#3001
+The Temple of Midgaard~
+You are standing in the grand Temple of Midgaard. Marble pillars soar
+upward into a painted vaulted ceiling depicting gods and heroes of legend.
+Sunlight streams through stained glass windows, casting colorful patterns
+across the polished marble floor.
+~
+30 12 0
+D0
+A pair of brass double doors lead north to the Temple Square.
+~
+doors door~
+1 0 3005
+D2
+A wide arched doorway leads south to the Clerics' Inner Sanctum.
+~
+~
+0 0 3002
+S
+#3002
+The Clerics' Inner Sanctum~
+Incense hangs heavy in the air of this quiet sanctuary. Candles flicker
+around a bronze altar dedicated to the deities of light and truth. A gentle
+chanting echoes softly from unseen quarters.
+~
+30 8 0
+D0
+The archway leads north into the main Temple.
+~
+~
+0 0 3001
+D1
+A small winding stair leads east into the Catacombs.
+~
+~
+0 0 3003
+S
+#3003
+Upper Crypt of the Ancients~
+Cobwebs brush against your face as you descend into the chilly stone crypt.
+Sarcophagi line the stone niches, and the air smells of old earth and dust.
+~
+30 9 0
+D3
+Steps lead west back up to the Inner Sanctum.
+~
+~
+0 0 3002
+D5
+A dark spiral staircase descends further down into darkness.
+~
+~
+0 0 3004
+S
+#3004
+Flooded Tomb of the Paladin~
+Knee-deep dark water covers the flagstones of this forgotten burial chamber.
+In the center lies a stone bier upon which an armored knight lies in eternal rest.
+~
+30 1 8
+D4
+The spiral stair ascends up toward the crypt entrance.
+~
+~
+0 0 3003
+S
+#3005
+The Temple Square of Midgaard~
+You are standing in the bustling Temple Square. Cobblestones spread out in
+all directions, worn smooth by thousands of pilgrims and merchants. To the
+south stands the great Temple of Midgaard.
+~
+30 0 1
+D2
+The grand temple doors open to the south.
+~
+doors door~
+1 0 3001
+S
+$~
+
